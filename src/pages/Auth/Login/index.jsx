@@ -1,17 +1,29 @@
+import FingerPrintImg from '@/assets/fingerprint.svg';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../style.scss';
 
 export default function Login() {
-  const [email, setEmail] = useState('');
+  const [profile, setProfile] = useState({
+    password: '',
+    email: '',
+  });
 
-  const handleChangeEmail = (e) => {
-    setEmail(e.target.value);
+  const handleProfileChange = (e) => {
+    setProfile({
+      ...profile,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmitLogin = (e) => {
     e.preventDefault();
-    if (!email) return;
+    if (!profile.password || !profile.email) return;
+    // handle login
+  };
+
+  const handleLoginWithPasskey = () => {
+    // handle login with passkey
   };
 
   return (
@@ -21,10 +33,15 @@ export default function Login() {
         <span>Don't have an account yet?</span>
         <Link to="/register">Create account</Link>
       </div>
-      <form onSubmit={handleSubmit}>
-        <input type="email" required value={email} name="email" placeholder="Email address" onChange={handleChangeEmail} />
-        <button type="submit" id="login-button" disabled={!email}>
-          Continue
+      <form onSubmit={handleSubmitLogin}>
+        <input type="email" required value={profile.email} name="email" placeholder="Email" onChange={handleProfileChange} />
+        <input type="password" required value={profile.password} name="password" placeholder="Password" onChange={handleProfileChange} />
+        <button type="submit" id="login-button" disabled={!profile.password || !profile.email}>
+          Login
+        </button>
+        <button type="button" className="flex" onClick={handleLoginWithPasskey}>
+          <img src={FingerPrintImg} alt="passkey" />
+          <span>Login with passkey</span>
         </button>
       </form>
     </div>
