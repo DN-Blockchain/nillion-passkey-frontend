@@ -21,3 +21,28 @@ button {
   cursor: pointer;
   outline: none;
 }
+
+.screen-loading-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+  z-index: 9998;
+}
+
+.screen-loading-overlay > div {
+  font-size: 32px;
+}
+
+.react-loading-item {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 400px;
+}
