@@ -1,5 +1,5 @@
 import axios from './axiosInstance';
 
 export const getProfile = () => {
-  return axios.get('/profile');
+  return axios.get('/users/profile');
 };

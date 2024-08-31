@@ -1,21 +1,13 @@
 import axios from './axiosInstance';
 
-export const register = (data) => {
-  return axios.post('/register', data);
+export const signup = (data) => {
+  return axios.post('/auth/signup', data);
 };
 
-export const loginByEmail = (data) => {
-  return axios.post('/login', data);
-};
-
-export const registerNewPasskey = (data) => {
-  return axios.post('/passkey', data);
-};
-
-export const loginByPasskey = (data) => {
-  return axios.post('/passkey', data);
+export const login = (data) => {
+  return axios.post('/auth/login', data);
 };
 
 export const logout = () => {
-  return axios.post('/logout');
+  return axios.post('/auth/logout');
 };
