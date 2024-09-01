@@ -1,5 +1,5 @@
 import { logout } from '@/api/auth';
-import { generatePasskeyOptions } from '@/api/passkey';
+import { generatePasskeyOptions, verifyRegistration } from '@/api/passkey';
 import { getProfile } from '@/api/profile';
 import FingerPrintImg from '@/assets/fingerprint-white.svg';
 import { clearToken } from '@/utils/local-storage';
@@ -24,14 +24,48 @@ export default function Profile() {
 
       createOptions.publicKey.pubKeyCredParams = [
         {
-          alg: -8,
           type: 'public-key',
+          alg: -7,
+        },
+        {
+          type: 'public-key',
+          alg: -35,
+        },
+        {
+          type: 'public-key',
+          alg: -36,
+        },
+        {
+          type: 'public-key',
+          alg: -257,
+        },
+        {
+          type: 'public-key',
+          alg: -258,
+        },
+        {
+          type: 'public-key',
+          alg: -259,
+        },
+        {
+          type: 'public-key',
+          alg: -37,
+        },
+        {
+          type: 'public-key',
+          alg: -38,
+        },
+        {
+          type: 'public-key',
+          alg: -39,
+        },
+        {
+          type: 'public-key',
+          alg: -8,
         },
       ];
-      console.log(createOptions.publicKey);
 
       const credential = await create(createOptions);
-      console.log('credential', credential);
       await verifyRegistration({ credential });
       toast.success('Add new passkey successfully');
     } catch (error) {
@@ -42,8 +76,6 @@ export default function Profile() {
 
   const handleLogout = async () => {
     try {
-      await logout();
-      clearToken();
       navigate('/login');
     } catch (error) {
       console.log('logout', error);
@@ -55,7 +87,6 @@ export default function Profile() {
       const { data } = await getProfile();
       setProfile(data.data);
     } catch (error) {
-      clearToken();
       navigate('/login');
       console.log('error', error);
     }
