@@ -28,7 +28,7 @@ export default function Register() {
       if (!profile.password || !profile.email) return;
       await signup(profile);
       setIsLoading(false);
-      toast.success('Create new account successfully!');
+      toast.success('Create new account successfully. Please login');
       navigate('/login');
     } catch (error) {
       setIsLoading(false);
