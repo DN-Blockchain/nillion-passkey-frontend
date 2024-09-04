@@ -1,8 +1,27 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+Frontend of Nillion passkey system
 
-Currently, two official plugins are available:
+# Prerequisite
+- Node LTS 20.x or higher
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
+
+```bash
+$ npm install
+```
+
+## Running the app
+
+```bash
+
+# copy file .env.example to .env file abd update api endpoint unto .env file
+$ cp .env.example .env
+
+# build app
+$ npm run build
+
+# run app
+$ npm run preview
+```
+
