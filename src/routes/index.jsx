@@ -1,7 +1,7 @@
-import RegisterPage from '../pages/auth/Register';
-import LoginPage from '../pages/auth/Login';
-import LandingPage from '../pages/Landing';
-import ProfilePage from '../pages/Profile';
+import RegisterPage from '@/pages/Auth/Register';
+import LoginPage from '@/pages/Auth/Login';
+import LandingPage from '@/pages/Landing';
+import ProfilePage from '@/pages/Profile';
 
 export const userRoutes = [
   {
